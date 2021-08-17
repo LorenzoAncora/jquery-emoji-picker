@@ -424,14 +424,16 @@
     if (typeof options === 'string') {
       this.each(function() {
         var plugin = $.data( this, pluginName );
-        switch(options) {
-          case 'toggle':
-            plugin.iconClicked();
-            break;
-          case 'destroy':
-            plugin.destroyPicker();
-            break;
-        }
+	if(plugin) {
+	    switch(options) {
+                case 'toggle':
+	            plugin.iconClicked();
+                break;
+	        case 'destroy':
+                    plugin.destroyPicker();
+                break;
+            }
+	}
       });
       return this;
     }
